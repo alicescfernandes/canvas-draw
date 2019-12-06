@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <link rel="stylesheet" href="css/styling.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
+        <script src="js/FotoPrint.js"></script>
+        <script src="js/DrawingObjects.js"></script>
+        <script src="js/ui-manager.js"></script>
+    </head>
+
+    <body>
+
+        <main>
+            <div class="hidden">
+                <input type="color" id="foreground-color" value="#2b2b2b">
+                <input type="color" id="background-color" value="#eaeaea">
+                <input id="filepicker" type="file" min="1" max="20">
+
+            </div>
+            <aside id="tool-menu" class="menu">
+                <ul>
+                    <li class="tool-item no-background">
+                        <div class="color-picker">
+                            <div class="color-show foreground">
+
+                            </div>
+                            <div class="color-show background">
+                            
+                            </div>
+                        </div>
+
+                    </li>
+                    <li data-options="shape" class="tool-item"> <img src="imgs/svg/3d.svg" class="icon" alt=""> </li>
+                    <li data-options="brush" class="tool-item"><img src="imgs/svg/brush-tool.svg" class="icon" alt=""></li>
+                    <li data-options="image" class="tool-item"><img src="imgs/svg/photo.svg" class="icon" alt=""></li>
+                    <li data-options="text" class="tool-item"><img src="imgs/svg/text-tool.svg" class="icon" alt=""></li>
+                    <li class="tool-item undo-action"><img src="imgs/svg/undo-circular-arrow.svg" class="icon" alt=""></li>
+                    <li class="tool-item export-action"><img src="imgs/svg/download-symbol.svg" class="icon" alt=""></li>
+                </ul>
+            </aside>
+
+            <div id="canvas-area">
+                <canvas id="main">
+                </canvas>
+            </div>
+            <aside id="tool-options-menu" class="menu">
+                <div class="menu-content" data-options="text">
+                    <div class="menu-title">
+                        <p>Text Tool</p>
+                    </div>
+                    <div class="menu-options">
+                        <div class="row"> 
+                           <h3>Appearance</h3>
+                            <div class="styled-select">
+                                <select ID="font_family">
+                                    <option value="Comic Sans MS">Comic Sans MS</option>
+                                    <option value="Verdana">Verdana</option>
+                                </select>
+                            </div>
+
+
+                            <div class="styled-select">
+                                <input id="font_size" list="fontSize" placeholder="12px">
+                                <datalist id="fontSize">
+                                    <option value="12px">
+                                    <option value="13px">
+                                    <option value="14px">
+                                    <option value="15px">
+                                    <option value="16px">
+                                </datalist>
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="menu-content" data-options="shape">
+                    <div class="menu-title">
+                        <p>Shape Tool</p>
+                    </div>
+                    <div class="menu-options">
+                        <canvas width="260" height="680" id="shape-area">
+                        </canvas>
+                    </div>
+                </div>
+
+
+                <div class="menu-content" data-options="brush">
+                    <div class="menu-title">
+                        <p>Brush Tool</p>
+                    </div>
+                    <div class="menu-options">
+                        <div class="row"> 
+                           <h3>Brush Size</h3>
+                        </div>
+                        <div id="brush_size" class="range-slider">
+                            <input class="range-slider__range" type="range" value="5" min="5" max="20">
+                            <span class="range-slider__value">5px</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="menu-content" data-options="image">
+                    <div class="menu-title">
+                        <p>Image Tool</p>
+                    </div>
+                    <div class="menu-options">
+                        <div class="row"> 
+                            <label for=""><h3>Upload image</h3> 
+                                <button id="choose_file" class="styled-select">Choose file</button></label></div>
+                    </div>
+                </div>
+
+            </aside>
+        </main>
+
+    </body>
+
+</html>
